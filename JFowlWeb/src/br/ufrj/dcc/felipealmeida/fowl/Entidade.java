@@ -67,6 +67,15 @@ public class Entidade implements Comparable<Entidade> {
 		return grau;
 	}
 	
+	// Score
+	public Integer getScore1() {
+		return this.getHits() * this.getGrau();
+	}
+	
+	public Integer getScore2() {
+		return this.getGrau();
+	}
+	
 	// assuntos 
 	
 	public List<String> getAssuntos() {
@@ -100,15 +109,13 @@ public class Entidade implements Comparable<Entidade> {
 	@Override
 	public int compareTo(Entidade e) {
 		
-		Integer meuTotal = this.getHits() + this.getGrau();
+		if (-this.getScore1().compareTo(e.getScore1()) == 0)
+			return -this.getScore2().compareTo(e.getScore2());
 		
-		Integer outroTotal = e.getHits() + e.getGrau();
-		
-		if (-meuTotal.compareTo(outroTotal) == 0)
-			return -this.getHits().compareTo(e.getHits());
-	
-		return -meuTotal.compareTo(outroTotal);
+		return -this.getScore1().compareTo(e.getScore1());
 	}
+
+
 
 
 }
