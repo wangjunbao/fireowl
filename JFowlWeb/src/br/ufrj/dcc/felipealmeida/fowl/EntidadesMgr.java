@@ -176,7 +176,7 @@ public class EntidadesMgr {
 		try {
 			ResultSet results = qexec.execSelect();
 			
-			List<String> assuntos = new ArrayList<>();
+			List<String> assuntos = new ArrayList<String>();
 			while (results.hasNext()) {
 				QuerySolution qs = results.next();
 				assuntos.add(qs.get("assunto").toString());
