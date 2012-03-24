@@ -29,7 +29,7 @@ public class Fowl {
 			conf = 0.2;
 			
 		// identificação de entidades
-		List<Entidade> entidades = new ArrayList<>();
+		List<Entidade> entidades = new ArrayList<Entidade>();
 		try {
 		EntidadesMgr em = new EntidadesMgr(conf, 0);
 		entidades = em.identificarEntidades(conteudo);
